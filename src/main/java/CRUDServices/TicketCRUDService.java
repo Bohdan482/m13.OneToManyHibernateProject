@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class TicketCRUDService implements OneToManyService{
-    HibernateUtil util = new HibernateUtil().getInstance();
+    HibernateUtil util = HibernateUtil.getInstance();
     @Override
     public void create(long clientId, String fromPlanet, String toPlanet) {
         Ticket ticket = new Ticket();

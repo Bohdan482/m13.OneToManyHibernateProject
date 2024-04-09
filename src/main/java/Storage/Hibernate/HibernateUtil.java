@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
     private static final HibernateUtil INSTANCE;
 
-    public HibernateUtil getInstance() {
+    public static HibernateUtil getInstance() {
     return INSTANCE;
     }
 
@@ -23,15 +23,11 @@ public class HibernateUtil {
         INSTANCE = new HibernateUtil();
     }
 
-    public HibernateUtil() {
+    private HibernateUtil() {
         sessionFactory = new Configuration()
                 .addAnnotatedClass(Client.class)
                 .addAnnotatedClass(Ticket.class)
                 .addAnnotatedClass(Planet.class)
                 .buildSessionFactory();
-    }
-
-    public void close(){
-        sessionFactory.close();
     }
 }

@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class PlanetCRUDService implements  CRUDService{
-    HibernateUtil util = new HibernateUtil().getInstance();
+    HibernateUtil util = HibernateUtil.getInstance();
     @Override
     public void create(Object entity) {
         try (Session session = util.getSessionFactory().openSession()) {
